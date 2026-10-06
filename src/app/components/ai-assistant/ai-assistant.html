@@ -1,0 +1,122 @@
+<section class="assistant">
+  <header class="assistant-header">
+    <div class="assistant-identity">
+      <div class="assistant-logo">✦</div>
+
+      <div class="assistant-name">
+        <strong>AI PROFILE</strong>
+        <span>Assistente profissional do Heron</span>
+      </div>
+    </div>
+
+    <div class="status">
+      <span class="status-dot"></span>
+      ONLINE
+    </div>
+  </header>
+
+  <div class="assistant-content">
+    <div class="intro">
+      <span class="eyebrow">CONVERSE COM MEU PORTFÓLIO</span>
+
+      <h2>
+        Pergunte sobre
+        <strong>minha experiência.</strong>
+      </h2>
+
+      <p>
+        Conheça minhas tecnologias, experiência profissional,
+        APIs, projetos e formação conversando com a IA.
+      </p>
+    </div>
+
+    <div class="suggestions">
+      @for (suggestion of suggestions; track suggestion) {
+        <button
+          type="button"
+          (click)="sendSuggestion(suggestion)"
+          [disabled]="isLoading"
+        >
+          {{ suggestion }}
+        </button>
+      }
+    </div>
+
+    <div
+      #messagesContainer
+      class="messages"
+    >
+      @for (message of messages; track $index) {
+
+        <div
+          class="message-row"
+          [class.user-row]="message.role === 'user'"
+        >
+          @if (message.role === 'assistant') {
+            <div class="avatar">✦</div>
+          }
+
+          <div
+            class="message"
+            [class.assistant-message]="message.role === 'assistant'"
+            [class.user-message]="message.role === 'user'"
+          >
+            <div class="message-label">
+              {{ message.role === 'assistant' ? 'AI' : 'VOCÊ' }}
+            </div>
+
+            <p>{{ message.content }}</p>
+          </div>
+        </div>
+      }
+
+      @if (isLoading) {
+        <div class="message-row thinking-row">
+          <div class="avatar">✦</div>
+
+          <div class="message assistant-message thinking-message">
+            <div class="message-label">AI</div>
+
+            <div class="thinking">
+              <div class="thinking-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <small>Pensando...</small>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+
+    <form
+      class="chat-input"
+      (submit)="sendMessage(); $event.preventDefault()"
+    >
+      <input
+        type="text"
+        name="question"
+        [(ngModel)]="question"
+        maxlength="500"
+        autocomplete="off"
+        placeholder="Pergunte algo sobre meu perfil..."
+        [disabled]="isLoading"
+      >
+
+      <button
+        type="submit"
+        [disabled]="!question.trim() || isLoading"
+        aria-label="Enviar pergunta"
+      >
+        <span>↑</span>
+      </button>
+    </form>
+
+    <div class="assistant-footer">
+      <span class="footer-dot"></span>
+      Assistente com IA baseado nas informações profissionais deste portfólio.
+    </div>
+  </div>
+</section>
