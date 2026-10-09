@@ -50,9 +50,16 @@ export const PROJECTS: Project[] = [
   {
     title: 'Portfolio AI',
     description:
-      'Portfólio profissional desenvolvido em Angular com assistente de IA integrado para responder perguntas sobre minha experiência, tecnologias e formação.',
-    technologies: ['Angular', 'TypeScript', 'Node.js', 'Gemini API'],
+      'Portfólio profissional desenvolvido em Angular com assistente de IA integrado. Utiliza Node.js e Express no backend, arquitetura híbrida com respostas locais e Gemini API, histórico de conversa, fallback e proteção contra abuso da API.',
+    technologies: [
+      'Angular',
+      'TypeScript',
+      'Node.js',
+      'Express',
+      'Gemini API',
+    ],
     status: 'Em desenvolvimento',
+    image: '/projects/portfolio-ai-preview.webp',
     featured: true,
   },
   {

@@ -58,22 +58,34 @@
 
       <div class="hero-actions">
 
-        <a href="#projects" class="primary-button">
-          Ver projetos
-          <span>↗</span>
-        </a>
+  <a
+    href="#projects"
+    class="primary-button"
+  >
+    Ver projetos
+    <span>↗</span>
+  </a>
 
-        <a
-          href="https://github.com/Heron-Alves"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="secondary-button"
-        >
-          GitHub
-          <span>↗</span>
-        </a>
+  <a
+    href="https://github.com/Heron-Alves"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="secondary-button"
+  >
+    GitHub
+    <span>↗</span>
+  </a>
 
-      </div>
+  <a
+    href="/curriculo/Curriculo-Heron-Alves.pdf"
+    download="Curriculo-Heron-Alves.pdf"
+    class="secondary-button curriculum-button"
+  >
+    Baixar currículo
+    <span>↓</span>
+  </a>
+
+</div>
 
     </section>
 
@@ -122,7 +134,6 @@
 
     </div>
 
-
     <div class="about-grid">
 
       <div class="about-highlight">
@@ -135,7 +146,6 @@
         </p>
 
       </div>
-
 
       <div class="about-description">
 
@@ -191,7 +201,6 @@
 
     </div>
 
-
     <article class="experience-card">
 
       <div class="experience-date">
@@ -203,7 +212,6 @@
         <strong>06/2025</strong>
 
       </div>
-
 
       <div class="experience-content">
 
@@ -220,7 +228,6 @@
           de aplicações web e mobile, atuando
           em soluções front-end e back-end.
         </p>
-
 
         <div class="experience-grid">
 
@@ -273,7 +280,6 @@
       </h2>
 
     </div>
-
 
     <div class="technology-grid">
 
@@ -329,7 +335,6 @@
 
     </div>
 
-
     <div class="projects-grid">
 
       @for (
@@ -337,16 +342,38 @@
         track project.title
       ) {
 
-        <article class="project-card">
+        <article
+          class="project-card"
+          [class.project-featured]="project.featured"
+        >
 
-          <div class="project-visual">
+          <div
+            class="project-visual"
+            [class.has-image]="project.image"
+          >
+
+            @if (project.image) {
+
+              <img
+                [src]="project.image"
+                [alt]="'Preview do projeto ' + project.title"
+                class="project-image"
+                loading="lazy"
+              />
+
+              <div class="project-image-overlay"></div>
+
+            } @else {
+
+              <div class="project-symbol">
+                &lt;/&gt;
+              </div>
+
+            }
 
             <div class="project-status">
+              <span></span>
               {{ project.status }}
-            </div>
-
-            <div class="project-symbol">
-              &lt;/&gt;
             </div>
 
             @if (project.featured) {
@@ -362,14 +389,25 @@
 
           <div class="project-information">
 
-            <h3>
-              {{ project.title }}
-            </h3>
+            <div class="project-title-row">
+
+              <h3>
+                {{ project.title }}
+              </h3>
+
+              @if (project.featured) {
+
+                <span class="project-type">
+                  FULL STACK + AI
+                </span>
+
+              }
+
+            </div>
 
             <p>
               {{ project.description }}
             </p>
-
 
             <div class="project-stack">
 
@@ -386,22 +424,9 @@
 
             </div>
 
-
             @if (project.github || project.demo) {
 
               <div class="project-actions">
-
-                @if (project.github) {
-
-                  <a
-                    [href]="project.github"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Código ↗
-                  </a>
-
-                }
 
                 @if (project.demo) {
 
@@ -410,7 +435,19 @@
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Demo ↗
+                    Ver projeto ↗
+                  </a>
+
+                }
+
+                @if (project.github) {
+
+                  <a
+                    [href]="project.github"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub ↗
                   </a>
 
                 }
@@ -450,7 +487,6 @@
       contribuir, aprender e continuar evoluindo
       como desenvolvedor.
     </p>
-
 
     <div class="contact-links">
 
