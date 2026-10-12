@@ -487,3 +487,187 @@
     margin-top: 7px;
   }
 }
+
+
+/* ===================================
+   AI PROFILE — REFINAMENTO VISUAL
+=================================== */
+
+.assistant {
+  background: linear-gradient(
+    145deg,
+    #0e1418 0%,
+    #090e12 100%
+  );
+
+  border: 1px solid rgba(145, 166, 172, 0.18);
+  border-radius: 20px;
+  overflow: hidden;
+
+  box-shadow: 0 24px 65px rgba(0, 0, 0, 0.25);
+}
+
+.assistant-header {
+  border-bottom: 1px solid rgba(145, 166, 172, 0.16);
+}
+
+.assistant-logo {
+  color: #b8ff3d;
+  background: rgba(184, 255, 61, 0.06);
+  border: 1px solid rgba(184, 255, 61, 0.3);
+  border-radius: 12px;
+}
+
+.status-dot {
+  background: #b8ff3d;
+  box-shadow: 0 0 12px rgba(184, 255, 61, 0.65);
+}
+
+.assistant-content .intro .eyebrow {
+  color: #b8ff3d;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+}
+
+.assistant-content .intro h2 {
+  color: #f5f7f8;
+  line-height: 1.15;
+  letter-spacing: -0.6px;
+}
+
+.assistant-content .intro h2 strong {
+  display: block;
+  color: #b8ff3d;
+}
+
+.assistant-content .intro p {
+  color: #a5b0b6;
+  line-height: 1.65;
+}
+
+/* Perguntas sugeridas */
+
+.suggestions {
+  display: grid;
+  gap: 8px;
+}
+
+.suggestions button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+
+  text-align: left;
+  color: #e7ecef;
+  background: rgba(5, 9, 12, 0.45);
+  border: 1px solid rgba(160, 179, 185, 0.28);
+  border-radius: 9px;
+  padding: 12px 14px;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.suggestions button:hover:not(:disabled) {
+  border-color: rgba(184, 255, 61, 0.55);
+  background: rgba(184, 255, 61, 0.06);
+  transform: translateY(-2px);
+}
+
+.suggestion-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.suggestion-arrow {
+  flex-shrink: 0;
+  color: #b8ff3d;
+  font-size: 17px;
+}
+
+.suggestions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Área de conversa */
+
+.messages {
+  border: 1px solid rgba(160, 179, 185, 0.13);
+  border-radius: 14px;
+  background: rgba(4, 8, 11, 0.38);
+}
+
+.assistant-message {
+  background: #131d23;
+  border: 1px solid rgba(160, 179, 185, 0.1);
+}
+
+.user-message {
+  background: rgba(184, 255, 61, 0.1);
+  border: 1px solid rgba(184, 255, 61, 0.22);
+}
+
+.avatar {
+  color: #b8ff3d;
+  border: 1px solid rgba(184, 255, 61, 0.25);
+  background: rgba(184, 255, 61, 0.06);
+}
+
+/* Campo de pergunta */
+
+.chat-input input {
+  background: #0c1419;
+  border-color: rgba(184, 255, 61, 0.25);
+}
+
+.chat-input input:focus {
+  outline: none;
+  border-color: #b8ff3d;
+}
+
+.chat-input button {
+  background: #b8ff3d;
+  color: #080a0d;
+}
+
+.chat-input button:hover:not(:disabled) {
+  background: #d0ff77;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .suggestions button {
+    transition: none;
+  }
+}
+
+
+/* Ajuste de legibilidade das sugestões */
+
+.suggestions button {
+  min-height: 48px;
+  padding: 12px 15px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.suggestion-text {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.suggestion-arrow {
+  font-size: 17px;
+}
+
+/* Ajuste do texto de apresentação */
+
+.assistant-content .intro p {
+  font-size: 13px;
+  line-height: 1.65;
+}

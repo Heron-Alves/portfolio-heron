@@ -1,3 +1,4 @@
+
 <section class="assistant">
   <header class="assistant-header">
     <div class="assistant-identity">
@@ -17,16 +18,19 @@
 
   <div class="assistant-content">
     <div class="intro">
-      <span class="eyebrow">CONVERSE COM MEU PORTFÓLIO</span>
+      <span class="eyebrow">
+        ✦ CONHEÇA MEU PERFIL COM IA
+      </span>
 
       <h2>
-        Pergunte sobre
-        <strong>minha experiência.</strong>
+        Não leia apenas meu currículo.
+        <strong>Converse com ele.</strong>
       </h2>
 
       <p>
-        Conheça minhas tecnologias, experiência profissional,
-        APIs, projetos e formação conversando com a IA.
+        Descubra minha experiência profissional,
+        tecnologias, projetos e formação.
+        Faça uma pergunta ou escolha uma sugestão abaixo.
       </p>
     </div>
 
@@ -37,17 +41,19 @@
           (click)="sendSuggestion(suggestion)"
           [disabled]="isLoading"
         >
-          {{ suggestion }}
+          <span class="suggestion-text">
+            {{ suggestion }}
+          </span>
+
+          <span class="suggestion-arrow" aria-hidden="true">
+            ↗
+          </span>
         </button>
       }
     </div>
 
-    <div
-      #messagesContainer
-      class="messages"
-    >
+    <div #messagesContainer class="messages">
       @for (message of messages; track $index) {
-
         <div
           class="message-row"
           [class.user-row]="message.role === 'user'"
@@ -101,9 +107,9 @@
         [(ngModel)]="question"
         maxlength="500"
         autocomplete="off"
-        placeholder="Pergunte algo sobre meu perfil..."
+        placeholder="O que você gostaria de saber?"
         [disabled]="isLoading"
-      >
+      />
 
       <button
         type="submit"
@@ -116,7 +122,8 @@
 
     <div class="assistant-footer">
       <span class="footer-dot"></span>
-      Assistente com IA baseado nas informações profissionais deste portfólio.
+      Respostas geradas por IA com base nas informações
+      profissionais do portfólio.
     </div>
   </div>
 </section>
